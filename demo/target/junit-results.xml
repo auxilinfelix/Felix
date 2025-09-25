@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="30.854" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-25T09:40:54.196710300Z">
+<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="30.594">
+<system-out><![CDATA[
+Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
+When User clicks on Add Training button.....................................passed
+And Verify user navigated to the Add Training page..........................passed
+And Select the project name "1".............................................passed
+And User enter the Employee Id "H1143"......................................passed
+And User enter the Employee name "Jerry"....................................passed
+And User enter the  Course name "Playwright"................................passed
+And User enter the Trainer name "Naveen"....................................passed
+And User select the Training type "1".......................................passed
+And User enter the start date "09242025"....................................passed
+And User enter the end date "09242025"......................................passed
+And User select the Status "0"..............................................passed
+And User enter the completion percentage "50"...............................passed
+And User clicks on Add button...............................................passed
+Then User navigated to the Training Summary page............................passed
+]]></system-out>
+</testcase>
+</testsuite>
