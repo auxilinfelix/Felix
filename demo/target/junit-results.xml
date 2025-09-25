@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="28.633" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-25T12:38:47.573243800Z">
-<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="28.277">
+<testsuite name="Cucumber" time="29.455" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-25T13:32:09.653651300Z">
+<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="29.238">
 <system-out><![CDATA[
 Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
 When User clicks on Add Training button.....................................passed
