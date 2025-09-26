@@ -1,16 +1,18 @@
 package pageobjectmodel;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import common.BaseClass;
 
-public class LoginPage_POM extends BaseClass {    
+public class AddReactPage_POM extends BaseClass {    
     WebDriver driver;
 
-    public LoginPage_POM(WebDriver driver) {
+    public AddReactPage_POM(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -40,7 +42,7 @@ public class LoginPage_POM extends BaseClass {
     @FindBy(xpath="//input[@name=\"trainerName\"]")
     public WebElement Trainername;
 
-    @FindBy(xpath="//div[@id=\"«r6mt»\"]")
+    @FindBy(xpath="(//div[@role='combobox'])[2]")
     public WebElement Trainertype;
 
     @FindBy(xpath="//input[@name=\"startDate\"]")
@@ -58,6 +60,21 @@ public class LoginPage_POM extends BaseClass {
     @FindBy(xpath = "//button[contains(text(),'Add')]")
     public WebElement Addbutton;
 
+    @FindBy(xpath = "//div[contains(text(),'Uncaught runtime errors:')]")
+    public WebElement Errormsg;
+
+    @FindBy(xpath = "//table//tbody//tr//td[contains(text(),'Felix')][1]")
+    public WebElement VerifyEmpname;
+    
+    @FindBy(xpath = "//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]")
+    public WebElement Editbutton;
+
+    @FindBy(xpath = "//h6[contains(text(),'Edit Training')]")
+    public WebElement EditTraining;
+
+    @FindBy(xpath = "//button[contains(text(),'Update')]")
+    public WebElement updatebutton;
+
     public void clickAddButton() {
         wait_BtnClick(Add_button);
     }
@@ -70,6 +87,15 @@ public class LoginPage_POM extends BaseClass {
         WebElement Employeenameelement = driver.findElement(By.xpath("//input[@name=\"employeeName\"]"));
         visible(Employeenameelement, 10);
     }
+
+    public void projectNameEmployeeNameVisible(){
+    WebElement projectNameElement= driver.findElement(By.xpath("//th[text()='Project Name']"));
+    boolean projectNameisVisible=projectNameElement.isDisplayed();
+    Assert.assertTrue("Project Name not visible", projectNameisVisible);
+    WebElement employeeNameElement= driver.findElement(By.xpath("//th[text()='Employee Name']"));
+    boolean employeeNameisVisible=employeeNameElement.isDisplayed();
+    Assert.assertTrue("Employee Name not visible", employeeNameisVisible);
+}
 
     public void Proj_dropdown(String Projtname){     
         wait_SelectByText(Projectname_drpdwn, Projtname);
@@ -119,6 +145,45 @@ public class LoginPage_POM extends BaseClass {
     public void Emp_Addbtn(){
         wait_BtnClick(Addbutton);
     }
+
+    public void Error_msg(){
+        visible(Errormsg, 10);
+    }
+
+    public void Verify_Empname(){
+        wait_ScrollDown(VerifyEmpname);
+    }
+
+    public void ClickEditButton(){
+        wait_BtnClick(Editbutton);
+    }
+
+    public void Verify_EditTraining(){
+        boolean editTrainingisVisible=EditTraining.isDisplayed();
+        Assert.assertTrue("Edit training not visible", editTrainingisVisible);
+        //visible(EditTraining,10);
+    }
+
+    public void editEmployeeName(String employeename){
+    WebElement editname= driver.findElement(By.name("employeeName"));
+    editname.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+     editname.sendKeys(employeename);
+    }
+    public void editCourse(String course){
+    WebElement editcourse= driver.findElement(By.name("course"));
+     editcourse.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+    editcourse.sendKeys(course);
+    }
+
+    public void ClickUpdateButton(){
+        wait_BtnClick(updatebutton);
+    }
+
+
+
+
+
+
 
 
 }

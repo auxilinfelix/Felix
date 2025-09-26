@@ -1,35 +1,36 @@
 package stepdefinitions;
 
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjectmodel.LoginPage_POM;
+import pageobjectmodel.AddReactPage_POM;
 
-public class Loginpage_Stepdefinitions extends BaseClass {
+public class AddReactpage_Stepdefinitions extends BaseClass {
 
-    LoginPage_POM loginpage;
+    AddReactPage_POM addreactpage;
     public static WebDriver driver;
 
     @Given("User launch the Employee Training url {string}")
     public void user_launch_the_employee_training_url(String string) {
         driver = launchBrowser("chrome");
-       loginpage = new LoginPage_POM(driver);
+       addreactpage = new AddReactPage_POM(driver);
         driver.get("http://10.192.190.130:3000/");
 }
 
     @When("User clicks on Add Training button")
     public void user_clicks_on_add_training_button() {
-        loginpage.clickAddButton();
+        addreactpage.clickAddButton();
     
 }
     @When("Verify user navigated to the Add Training page")
     public void verify_user_navigated_to_the_add_training_page() {
-        loginpage.ProjectEmployeeNameVisible();
+        addreactpage.ProjectEmployeeNameVisible();
         
 }
     @When("Select the project name {string}")
@@ -49,19 +50,19 @@ public class Loginpage_Stepdefinitions extends BaseClass {
 }
     @When("User enter the Employee Id {string}")
     public void user_enter_the_employee_id(String employeeid) {
-        loginpage.Employee_Id(employeeid);
+        addreactpage.Employee_Id(employeeid);
 }
     @When("User enter the Employee name {string}")
     public void user_enter_the_employee_name(String empname) {
-        loginpage.Employee_name(empname);    
+        addreactpage.Employee_name(empname);    
 }
     @When("User enter the  Course name {string}")
     public void user_enter_the_course_name(String coursename) {
-        loginpage.Employee_course(coursename);   
+        addreactpage.Employee_course(coursename);   
 }
     @When("User enter the Trainer name {string}")
     public void user_enter_the_trainer_name(String Trainername) {
-        loginpage.Emp_Trainername(Trainername);
+        addreactpage.Emp_Trainername(Trainername);
     
 }
     @When("User select the Training type {string}")
@@ -80,11 +81,11 @@ public class Loginpage_Stepdefinitions extends BaseClass {
 }
     @When("User enter the start date {string}")
     public void user_enter_the_start_date(String startDate) {
-        loginpage.Emp_startdate(startDate);
+        addreactpage.Emp_startdate(startDate);
 }
     @When("User enter the end date {string}")
     public void user_enter_the_end_date(String endDate) {
-        loginpage.Emp_enddate(endDate);
+        addreactpage.Emp_enddate(endDate);
 }
     @When("User select the Status {string}")
     public void user_select_the_status(String Status) throws InterruptedException {
@@ -101,17 +102,78 @@ public class Loginpage_Stepdefinitions extends BaseClass {
 }
     @When("User enter the completion percentage {string}")
     public void user_enter_the_completion_percentage(String percentagecompletion) {
-        loginpage.Emp_CourseComplt(percentagecompletion);
+        addreactpage.Emp_CourseComplt(percentagecompletion);
 }
     @When("User clicks on Add button")
     public void user_clicks_on_add_button(){
-     loginpage.Emp_Addbtn();   
-
+     addreactpage.Emp_Addbtn();   
     }
+
+    @When("User clicks on Add button without Trainer name")
+    public void user_clicks_on_add_button_without_trainer_name(){
+        addreactpage.Emp_Addbtn();
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println("Alert Text is :"+alertText);
+        alert.accept();
+    }
+
+    // @When("User can see the error message for empty Employee name {string}")
+    // public void user_can_see_the_error_message_for_empty_employee_name(String Expectederrormsg){
+
+    //     try{
+    //         addreactpage.Error_msg();
+    //         highLightWebElement(addreactpage.Errormsg);
+    //         String Actualerrormsg = addreactpage.Errormsg.getText().trim();
+        
+    //         System.out.println("Expected Error Message: " + Expectederrormsg);
+    //         System.out.println("Actual Error Message: " + Actualerrormsg);
+    //         // Assertion
+    //     Assert.assertTrue(
+    //         "Error message mismatch! Expected: " + Expectederrormsg + " but got: " +
+    //          Actualerrormsg,Actualerrormsg.contains(Expectederrormsg));
+    //     }catch (Exception e) {
+    //     Assert.fail("Error message not found: " + e.getMessage());
+    // }        
+    // throw new io.cucumber.java.PendingException();
+    // String Actualerrormsg = addreactpage.Errormsg.getText().trim();
+    // Assert.assertTrue(
+    //     "❌ Error message mismatch! Expected: " + Expectederrormsg + " but got: " + Actualerrormsg,
+    //     Actualerrormsg.contains(Expectederrormsg)
+    // );
+    // }
+
+    @When("Verify user is on training records projectName, EmployeeName")
+    public void Verify_user_is_on_training_records_projectname_employeename(){
+        addreactpage.projectNameEmployeeNameVisible();
+    }
+
+    @When("click edit on first record")
+    public void click_edit_on_first_record(){
+        addreactpage.ClickEditButton();
+    }
+
+    @When("verify user is on edit training")
+    public void verify_user_is_on_edit_training(){
+        addreactpage.Verify_EditTraining();
+    }
+
+    @When("I change the employeename to {string} and the course to {string}")
+    public void i_change_the_employeename_to_and_the_course_to(String employeename, String employeecourse){
+       addreactpage.editEmployeeName(employeename);
+       addreactpage.editCourse(employeecourse);
+    }
+
+    @When("click on update button")
+    public void click_on_update_button(){
+        addreactpage.ClickUpdateButton();
+    }
+
     @Then("User navigated to the Training Summary page")
     public void user_navigated_to_the_training_summary_page() {
         System.out.println("Navigate to another window");
 }
+    
 
 }
 

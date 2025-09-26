@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="29.455" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-25T13:32:09.653651300Z">
-<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="29.238">
+<testsuite name="Cucumber" time="124.114" tests="3" skipped="0" failures="1" errors="0" timestamp="2025-09-26T13:43:11.783347300Z">
+<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="29.385">
 <system-out><![CDATA[
 Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
 When User clicks on Add Training button.....................................passed
@@ -10,13 +10,82 @@ And User enter the Employee Id "H1143"......................................pass
 And User enter the Employee name "Jerry"....................................passed
 And User enter the  Course name "Playwright"................................passed
 And User enter the Trainer name "Naveen"....................................passed
-And User select the Training type "1".......................................passed
+And User select the Training type "2".......................................passed
 And User enter the start date "09242025"....................................passed
 And User enter the end date "09242025"......................................passed
-And User select the Status "0"..............................................passed
+And User select the Status "1"..............................................passed
 And User enter the completion percentage "50"...............................passed
 And User clicks on Add button...............................................passed
 Then User navigated to the Training Summary page............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user with Empty Employee name - #1.1" time="33.568">
+<system-out><![CDATA[
+Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
+When User clicks on Add Training button.....................................passed
+And Verify user navigated to the Add Training page..........................passed
+And Select the project name "2".............................................passed
+And User enter the Employee Id "M7769"......................................passed
+And User enter the  Course name "TestCafe"..................................passed
+And User enter the Trainer name "Kishore"...................................passed
+And User select the Training type "2".......................................passed
+And User enter the start date "09242025"....................................passed
+And User enter the end date "09242025"......................................passed
+And User select the Status "2"..............................................passed
+And User enter the completion percentage "70"...............................passed
+And User clicks on Add button...............................................passed
+Then User navigated to the Training Summary page............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User want to add the New Employee Training records" name="Edit the Employee Traning records in the React Page" time="60.908">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]' (tried for 50 second(s) with 500 milliseconds interval)">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]' (tried for 50 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at common.BaseClass.wait_BtnClick(BaseClass.java:311)
+	at pageobjectmodel.AddReactPage_POM.ClickEditButton(AddReactPage_POM.java:158)
+	at stepdefinitions.AddReactpage_Stepdefinitions.click_edit_on_first_record(AddReactpage_Stepdefinitions.java:153)
+	at ✽.click edit on first record(file:///C:/Users/aarulfrancis/Downloads/FirstProject/demo/src/test/resources/features/AddReactPage.feature:83)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]"}
+  (Session info: chrome=140.0.7339.128)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f969ff23d1528dc28a3624ed8377f320, findElement {using=xpath, value=//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\AARULF~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59930}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59930/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f969ff23d1528dc28a3624ed8377f320
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy19.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 4 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
+Then Verify user is on training records projectName, EmployeeName...........passed
+Then click edit on first record.............................................failed
+And verify user is on edit training.........................................skipped
+Then I change the employeename to "Jerry" and the course to "Automation"....skipped
+Then click on update button.................................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>
