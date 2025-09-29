@@ -1,5 +1,5 @@
 @API_smoke
-Feature: API_Web_React_E-E_Validation
+Feature: React_Application_Web_API Validation
 Background:
   Given The base URI of API is "http://10.192.190.130:5000"
 
