@@ -1,5 +1,6 @@
 package common;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
@@ -9,6 +10,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,20 +25,24 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Random;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
 public class BaseClass {
 
+	public static String userID = "";
     public static WebDriverWait wait;
    public static WebDriver driver;
    public static WebElement element;
@@ -153,6 +160,10 @@ public class BaseClass {
       element.sendKeys(new CharSequence[]{value});
       return value;
    }
+
+   public static void sendKeys(WebElement element, String data) {
+        element.sendKeys(data);
+    }
    
    public static void wait_Sendkeys(WebElement element, String value, int num) {
 		try {
@@ -238,17 +249,12 @@ public class BaseClass {
 		Select s = new Select(until);
 		switch (type) {
 		case "value":
-
 			s.selectByValue(value);
 			break;
-
 		case "text":
-
 			s.selectByVisibleText(value);
 			break;
-
 		case "index":
-
 			s.selectByIndex(Integer.parseInt(value));
 			break;
 		}
@@ -401,11 +407,51 @@ public class BaseClass {
 		return element;
 	}
 
+	    public static int randomNumber(int num) {
+        Random random = new Random();
+        int randomNum = random.nextInt(num);
+        return randomNum;
+
+    }
+
+	public int getResponseCode(String url) {
+    int responseCode = -1;
+    try {
+        URL obj = new URL(url);
+        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+        connection.setRequestMethod("GET");  // or "POST" if needed
+        connection.connect();
+        responseCode = connection.getResponseCode();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return responseCode;
+}
+
+	public static String randomString(int n) {
+        String rand = RandomStringUtils.randomAlphabetic(n);
+        return rand;
+    }
+
+	public static void takesScreenshot() throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File src = ts.getScreenshotAs(OutputType.FILE);
+        File path = new File("C:\\Users\\aarulfrancis\\Desktop\\Screenshots\\React_Application\\Screenshots\\image.jpg");
+        FileHandler.copy(src, path);
+    }
+
+    public static void takesScreenshot1() throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File src = ts.getScreenshotAs(OutputType.FILE);
+        File path = new File("C:\\Users\\aarulfrancis\\Desktop\\Screenshots\\React_Application\\Screenshots\\name.png");
+        FileHandler.copy(src, path);
+    }
+
 	public String getDataFromExcel(String sheet, int row, int cell) throws IOException {
 		String value = null;
 		try {
 			File excelLoc = new File(
-					"C:\\Users\\a1354\\eclipse-workspace\\sgi-automation\\New_SGI\\Excel\\sathish.xlsx");
+					"C:\\Users\\aarulfrancis\\React_Application\\Excel\\Felix.xlsx");
 			FileInputStream stream = new FileInputStream(excelLoc);
 			XSSFWorkbook w = new XSSFWorkbook(stream);
 			XSSFSheet s = w.getSheet(sheet);

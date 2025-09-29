@@ -3,6 +3,7 @@ package stepdefinitions;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import common.BaseClass;
@@ -21,18 +22,18 @@ public class AddReactpage_Stepdefinitions extends BaseClass {
         driver = launchBrowser("chrome");
        addreactpage = new AddReactPage_POM(driver);
         driver.get("http://10.192.190.130:3000/");
-}
+    }
 
     @When("User clicks on Add Training button")
     public void user_clicks_on_add_training_button() {
         addreactpage.clickAddButton();
-    
-}
+    }
+
     @When("Verify user navigated to the Add Training page")
     public void verify_user_navigated_to_the_add_training_page() {
         addreactpage.ProjectEmployeeNameVisible();
         
-}
+    }
     @When("Select the project name {string}")
     public void select_the_project_name(String index) throws InterruptedException {
         // int indexstr = Integer.parseInt(index);
@@ -45,8 +46,7 @@ public class AddReactpage_Stepdefinitions extends BaseClass {
         pressDown(n);
         hold(1000);
         pressEnter();
-        hold(1000);
-          
+        hold(1000);          
 }
     @When("User enter the Employee Id {string}")
     public void user_enter_the_employee_id(String employeeid) {
@@ -101,8 +101,10 @@ public class AddReactpage_Stepdefinitions extends BaseClass {
         hold(1000);
 }
     @When("User enter the completion percentage {string}")
-    public void user_enter_the_completion_percentage(String percentagecompletion) {
-        addreactpage.Emp_CourseComplt(percentagecompletion);
+    public void user_enter_the_completion_percentage(String percentage)  throws InterruptedException{
+         addreactpage.percentcomplete.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+         BaseClass.hold(500);
+        addreactpage.percentcomplete.sendKeys(percentage);        
 }
     @When("User clicks on Add button")
     public void user_clicks_on_add_button(){
@@ -172,8 +174,7 @@ public class AddReactpage_Stepdefinitions extends BaseClass {
     @Then("User navigated to the Training Summary page")
     public void user_navigated_to_the_training_summary_page() {
         System.out.println("Navigate to another window");
-}
-    
+}    
 
 }
 

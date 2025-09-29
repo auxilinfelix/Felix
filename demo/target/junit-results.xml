@@ -1,91 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="124.114" tests="3" skipped="0" failures="1" errors="0" timestamp="2025-09-26T13:43:11.783347300Z">
-<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user in Employee Training records - #1.1" time="29.385">
-<system-out><![CDATA[
-Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
-When User clicks on Add Training button.....................................passed
-And Verify user navigated to the Add Training page..........................passed
-And Select the project name "1".............................................passed
-And User enter the Employee Id "H1143"......................................passed
-And User enter the Employee name "Jerry"....................................passed
-And User enter the  Course name "Playwright"................................passed
-And User enter the Trainer name "Naveen"....................................passed
-And User select the Training type "2".......................................passed
-And User enter the start date "09242025"....................................passed
-And User enter the end date "09242025"......................................passed
-And User select the Status "1"..............................................passed
-And User enter the completion percentage "50"...............................passed
-And User clicks on Add button...............................................passed
-Then User navigated to the Training Summary page............................passed
-]]></system-out>
-</testcase>
-<testcase classname="User want to add the New Employee Training records" name="Validation of creating the new user with Empty Employee name - #1.1" time="33.568">
-<system-out><![CDATA[
-Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
-When User clicks on Add Training button.....................................passed
-And Verify user navigated to the Add Training page..........................passed
-And Select the project name "2".............................................passed
-And User enter the Employee Id "M7769"......................................passed
-And User enter the  Course name "TestCafe"..................................passed
-And User enter the Trainer name "Kishore"...................................passed
-And User select the Training type "2".......................................passed
-And User enter the start date "09242025"....................................passed
-And User enter the end date "09242025"......................................passed
-And User select the Status "2"..............................................passed
-And User enter the completion percentage "70"...............................passed
-And User clicks on Add button...............................................passed
-Then User navigated to the Training Summary page............................passed
-]]></system-out>
-</testcase>
-<testcase classname="User want to add the New Employee Training records" name="Edit the Employee Traning records in the React Page" time="60.908">
-<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]' (tried for 50 second(s) with 500 milliseconds interval)">
-<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]' (tried for 50 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at common.BaseClass.wait_BtnClick(BaseClass.java:311)
-	at pageobjectmodel.AddReactPage_POM.ClickEditButton(AddReactPage_POM.java:158)
-	at stepdefinitions.AddReactpage_Stepdefinitions.click_edit_on_first_record(AddReactpage_Stepdefinitions.java:153)
-	at ✽.click edit on first record(file:///C:/Users/aarulfrancis/Downloads/FirstProject/demo/src/test/resources/features/AddReactPage.feature:83)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]"}
-  (Session info: chrome=140.0.7339.128)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f969ff23d1528dc28a3624ed8377f320, findElement {using=xpath, value=//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\AARULF~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59930}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59930/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f969ff23d1528dc28a3624ed8377f320
+<testsuite name="Cucumber" time="3.619" tests="4" skipped="0" failures="3" errors="0" timestamp="2025-09-29T11:00:55.851150600Z">
+<testcase classname="API_Web_React_E-E_Validation" name="Post_Request" time="2.759">
+<failure type="java.lang.AssertionError" message="1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;500&gt;.
+">
+<![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <201> but was <500>.
+
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy19.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 4 more
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+	at stepdefinitions.React_API_P_G_P_D.i_send_a_post_request_to_the_api_with_endpoint_and_name(React_API_P_G_P_D.java:46)
+	at ✽.I send a POST request to the API with endpoint "/api/trainings" and name 7(file:///C:/Users/aarulfrancis/Downloads/FirstProject/demo/src/test/resources/features/React_API.feature:7)
 ]]>
 </failure>
 <system-out><![CDATA[
-Given User launch the Employee Training url "http://10.192.190.130:3000/"...passed
-Then Verify user is on training records projectName, EmployeeName...........passed
-Then click edit on first record.............................................failed
-And verify user is on edit training.........................................skipped
-Then I change the employeename to "Jerry" and the course to "Automation"....skipped
-Then click on update button.................................................skipped
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a POST request to the API with endpoint "/api/trainings" and name 7.failed
+Then I should receive the post response.....................................skipped
+And verify the status code is "201" and post request is successful in API...skipped
+And validate if a new training is CREATED in the Web........................skipped
+]]></system-out>
+</testcase>
+<testcase classname="API_Web_React_E-E_Validation" name="Put_Request" time="0.094">
+<failure type="java.lang.AssertionError" message="1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;404&gt;.
+">
+<![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <200> but was <404>.
+
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+	at stepdefinitions.React_API_P_G_P_D.i_send_a_put_request_to_the_api_with_endpoint_and_name(React_API_P_G_P_D.java:106)
+	at ✽.I send a PUT request to the API with endpoint "/api/trainings/" and name 6(file:///C:/Users/aarulfrancis/Downloads/FirstProject/demo/src/test/resources/features/React_API.feature:13)
+]]>
+</failure>
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a PUT request to the API with endpoint "/api/trainings/" and name 6.failed
+Then I should receive the put response......................................skipped
+And the status code contains "200" and put request is successful in API.....skipped
+And validate if the corresponding record got UPDATED in the Web.............skipped
+]]></system-out>
+</testcase>
+<testcase classname="API_Web_React_E-E_Validation" name="Get_Request" time="0.421">
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a GET request to the API with endpoint "/api/trainings".........passed
+Then I should receive the response..........................................passed
+And the status code is "200"................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="API_Web_React_E-E_Validation" name="Delete_Request" time="0.052">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;stepdefinitions.React_API_P_G_P_D.driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "stepdefinitions.React_API_P_G_P_D.driver" is null
+	at stepdefinitions.React_API_P_G_P_D.validate_if_the_corresponding_record_got_deleted_in_the_web(React_API_P_G_P_D.java:191)
+	at ✽.validate if the corresponding record got DELETED in the Web(file:///C:/Users/aarulfrancis/Downloads/FirstProject/demo/src/test/resources/features/React_API.feature:27)
+]]>
+</failure>
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a DELETE request to the API with endpoint "/api/trainings/".....passed
+Then I should receive the delete response...................................passed
+And verify if the status code has "204" and delete request is successful in API.passed
+And validate if the corresponding record got DELETED in the Web.............failed
 ]]></system-out>
 </testcase>
 </testsuite>

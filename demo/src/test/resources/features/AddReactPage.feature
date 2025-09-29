@@ -40,7 +40,7 @@ Examples:
     And User enter the start date "<startDate>"
     And User enter the end date "<endDate>"
     And User select the Status "<status>"
-    And User enter the completion percentage "<percentagecompletion>"
+    And User enter the completion percentage 70
     And User clicks on Add button
     #And User can see the error message for empty Employee name "<Errormsg>"
     Then User navigated to the Training Summary page
@@ -64,7 +64,7 @@ Examples:
     And User enter the start date "<startDate>"
     And User enter the end date "<endDate>"
     And User select the Status "<status>"
-    And User enter the completion percentage "<percentagecompletion>"
+    And User enter the completion percentage 70
     And User clicks on Add button without Trainer name
     And User enter the Trainer name "<Trainername>"
     And User clicks on Add button

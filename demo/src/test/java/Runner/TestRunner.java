@@ -12,10 +12,10 @@ import io.cucumber.junit.CucumberOptions;
                                 "html:target/cucumber-reports.html",
                                 "junit:target/junit-results.xml",
                                 "json:target/cucumber.json"
-                }, monochrome = true, tags =  "@regression or @Editing or @sanity",
+                }, monochrome = true, tags =  "@regression or sanity", 
                 dryRun = false)
-public class TestRunner {
 
+public class TestRunner {
 
     
 } 

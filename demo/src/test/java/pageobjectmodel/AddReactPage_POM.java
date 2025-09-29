@@ -66,7 +66,7 @@ public class AddReactPage_POM extends BaseClass {
     @FindBy(xpath = "//table//tbody//tr//td[contains(text(),'Felix')][1]")
     public WebElement VerifyEmpname;
     
-    @FindBy(xpath = "//table//tr//td[contains(text(),'Jerry')]//following-sibling::td[@class='MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1vfcyao-MuiTableCell-root']//child::button[@type='button'][1]")
+    @FindBy(xpath = "//button[@aria-label=\"edit\"][1]")
     public WebElement Editbutton;
 
     @FindBy(xpath = "//h6[contains(text(),'Edit Training')]")
